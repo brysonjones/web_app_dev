@@ -1,21 +1,29 @@
 
 var buttonColours = ["red", "blue", "green", "yellow"]
 var gamePattern = [];
+var userClickedPattern = [];
 
-// set up audio for each color
-var audio = {};
-
-
+function playSound(name)
+{
+    $("." + name + "_sound").get(0).play();
+}
 
 function nextSequence()
 {
+    // generate random colour and store it
     var randomNumber = Math.floor(3 * Math.random()) + 1;
-    return randomNumber;
+    var randomChosenColour = buttonColours[randomNumber];
+    gamePattern.push(randomChosenColour);
+
+    $("#" + randomChosenColour).fadeOut(100).fadeIn(100);
+    playSound(randomChosenColour);
 }
 
-// generate random colour and store it
-var randomChosenColour = buttonColours[nextSequence()];
-gamePattern.push(randomChosenColour);
+nextSequence();
 
-$("#" + randomChosenColour).fadeOut(100).fadeIn(100);
-$("." + randomChosenColour + "_sound").get(0).play();
+$(".btn").click(function()
+{
+    var userChosenColour = this.id;
+    userClickedPattern.push(userChosenColour);
+    console.log(userClickedPattern);
+});

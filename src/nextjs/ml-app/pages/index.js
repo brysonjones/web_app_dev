@@ -1,7 +1,8 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import Link from 'next/link';
-import { io } from 'socket.io-client';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import FileUpload from '../components/FileUpload'
+import { io } from "socket.io-client";
 
 const URL = "http://localhost:5000";
 const socket = io(URL, { autoConnect: false });
@@ -13,30 +14,27 @@ const connect = () => {
 
 const clickHandler = () => {
   console.log("sending");
-  socket.emit('message', 'yeet');
+  socket.emit("message", "yeet");
 };
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className={styles.main}>
       <Head>
-        <title>Create Next App</title>
+        <title>ML App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">
+        <h1 className={styles.title}>
           Read <Link href="/posts/first-post">this page!</Link>
         </h1>
         <div>
-          <button onClick={connect}>connect</button>
-          <button onClick={clickHandler}>Click me</button>
+          <FileUpload />
         </div>
       </main>
 
-      <footer>
-        Footer
-      </footer>
+      <footer>Footer</footer>
     </div>
-  )
+  );
 }

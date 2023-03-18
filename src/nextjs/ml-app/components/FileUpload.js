@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Button from "./UI/Button";
+import ImageInput from "./UI/ImageInput";
 
 function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState();
@@ -16,7 +17,6 @@ function FileUploadPage() {
     const formData = new FormData();
 
     formData.append("File", selectedFile);
-    console.log("formData:", formData);
 
     fetch("http://localhost:5000", {
       crossDomain: true,
@@ -34,15 +34,12 @@ function FileUploadPage() {
 
   return (
     <Fragment>
-      <input type="file" name="file" onChange={changeHandler} />
-      {isSelected ? (
-        <div>
-          {image && <img src={image} alt="preview image" />}
-        </div>
-      ) : (
-        <p>Select a file to show details</p>
-      )}
-
+      <ImageInput type="file" 
+                  name="file" 
+                  onChange={changeHandler} 
+                  isSelected={isSelected} 
+                  image={image} 
+      />
       <div>
         <Button onClick={handleSubmission}>Submit</Button>
       </div>

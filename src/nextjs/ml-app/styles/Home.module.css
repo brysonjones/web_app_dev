@@ -1,9 +1,24 @@
 
 .main {
   padding: 4rem;
+  position : relative
 }
 
 .title {
   margin: auto;
   text-align: center;
+}
+
+.image_viewer {
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.footer {
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
 }

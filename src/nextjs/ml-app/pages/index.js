@@ -25,16 +25,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <div>
         <h1 className={styles.title}>
           Read <Link href="/posts/first-post">this page!</Link>
         </h1>
-        <div>
+        <div className={styles.image_viewer}>
           <FileUpload />
         </div>
-      </main>
+      </div>
 
-      <footer>Footer</footer>
+      <footer className={styles.footer}>
+        Built by <Link href="https://github.com/brysonjones">Bryson Jones</Link>
+      </footer>
     </div>
   );
 }

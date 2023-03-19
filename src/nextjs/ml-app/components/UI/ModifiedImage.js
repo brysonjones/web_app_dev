@@ -39,7 +39,7 @@ const ModifiedImage = (props) => {
             {responseImage && (
               <img
                 src={`data:image/jpeg;base64,${responseImage}`}
-                className={classes.image}
+                className=""
               />
             )}
           </div>

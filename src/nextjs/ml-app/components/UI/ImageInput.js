@@ -14,7 +14,6 @@ const ImageInput = (props) => {
           ref={fileInput}
           onChange={props.onChange}
           style={{ display: "none" }}
-          className={classes.input}
         />
         <Button onClick={() => fileInput.current.click()}>Upload Image</Button>
       </div>
@@ -25,7 +24,7 @@ const ImageInput = (props) => {
               <img
                 src={props.image}
                 alt="preview image"
-                className={classes.image}
+                className=""
               />
             )}
           </div>

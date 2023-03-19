@@ -3,7 +3,7 @@ import classes from "./Canvas.module.css";
 
 const Canvas = (props) => {
   return (
-    <div className={classes.canvas}>
+    <div className={`${classes.canvas} rounded-3xl`}>
       <span className={classes.canvas_text}>Waiting for content</span>
     </div>
   );

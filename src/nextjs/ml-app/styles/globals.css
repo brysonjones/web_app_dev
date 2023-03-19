@@ -1,5 +1,8 @@
+
+@import "color-palette.css";
+
 html,
 body {
     margin: 0;
-    background-color: #54123B;
+    background-color: var(--main-color);
 }

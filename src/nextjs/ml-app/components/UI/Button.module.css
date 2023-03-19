@@ -1,8 +1,15 @@
+
+/* TODO: hide this behind a re-usable file*/
+@value main-color: #4E6E81;
+@value secondary-color: #F9DBBB;
+@value tertiary-color: #FF0303;
+@value accent-color: #2E3840;
+
 .button {
     font: inherit;
-    border: 1px solid #84142D;
-    background: #84142D;
-    color: #29C7AC;
+    border: 1px solid accent-color;
+    background: accent-color;
+    color: secondary-color;
     padding: 0.25rem 1rem;
     cursor: pointer;
     border-radius: 15px;
@@ -10,8 +17,8 @@
   
   .button:hover,
   .button:active {
-    background: #C02739;
-    border-color: #C02739;
+    background: tertiary-color;
+    border-color: tertiary-color;
   }
   
   .button:focus {

@@ -1,5 +1,6 @@
 import React, { Fragment, useRef} from "react";
 import Button from "./Button";
+import Canvas from "./Canvas";
 import classes from './ImageInput.module.css';
 
 const ImageInput = props => {
@@ -18,7 +19,7 @@ const ImageInput = props => {
                     {props.image && <img src={props.image} alt="preview image" className={classes.image}/>}
                 </div>
             ) : (
-                <p>Select a file to view it</p>
+                <Canvas />
             )}
 
         </Fragment>

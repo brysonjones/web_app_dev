@@ -37,7 +37,7 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        Built by <Link href="https://github.com/brysonjones">Bryson Jones</Link>
+        Built by <Link href="https://github.com/brysonjones" className={styles.footer_link}>Bryson Jones</Link>
       </footer>
     </div>
   );

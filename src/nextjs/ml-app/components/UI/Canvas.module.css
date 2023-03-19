@@ -1,0 +1,23 @@
+
+/* TODO: hide this behind a re-usable file*/
+@value main-color: #4E6E81;
+@value secondary-color: #F9DBBB;
+@value tertiary-color: #FF0303;
+@value accent-color: #2E3840;
+
+.canvas {
+    margin: auto;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    background-color: secondary-color;
+    background-clip: content-box;
+    padding: 1rem;
+}
+
+.canvas_text {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}

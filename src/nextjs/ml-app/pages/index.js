@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import FileUpload from '../components/FileUpload'
+import FileUpload from "../components/FileUpload";
 import { io } from "socket.io-client";
 
 const URL = "http://localhost:5000";
@@ -27,9 +27,7 @@ export default function Home() {
 
       <div className={styles.main}>
         <div className={styles.title}>
-          <h1>
-            ControlNet
-          </h1>
+          <h1>ControlNet</h1>
         </div>
         <div className={styles.image_viewer}>
           <FileUpload />
@@ -37,7 +35,13 @@ export default function Home() {
       </div>
 
       <footer className={styles.footer}>
-        Built by <Link href="https://github.com/brysonjones" className={styles.footer_link}>Bryson Jones</Link>
+        Built by{" "}
+        <Link
+          href="https://github.com/brysonjones"
+          className={styles.footer_link}
+        >
+          Bryson Jones
+        </Link>
       </footer>
     </div>
   );

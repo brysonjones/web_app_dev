@@ -19,16 +19,18 @@ const clickHandler = () => {
 
 export default function Home() {
   return (
-    <div className={styles.main}>
+    <div>
       <Head>
         <title>ML App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <h1 className={styles.title}>
-          Read <Link href="/posts/first-post">this page!</Link>
-        </h1>
+      <div className={styles.main}>
+        <div className={styles.title}>
+          <h1>
+            ControlNet
+          </h1>
+        </div>
         <div className={styles.image_viewer}>
           <FileUpload />
         </div>

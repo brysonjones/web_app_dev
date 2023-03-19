@@ -6,6 +6,8 @@ function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState();
   const [image, setImage] = useState(null);
   const [isSelected, setIsSelected] = useState(false);
+  const [responseImage, setResponseImage] = useState(null);
+  const [responseSuccess, setResponseSuccess] = useState(false);
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -26,6 +28,8 @@ function FileUploadPage() {
       .then((response) => response.json())
       .then((result) => {
         console.log("Success:", result);
+        setResponseImage(result['image']);
+        setResponseSuccess(true);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -43,6 +47,13 @@ function FileUploadPage() {
       <div>
         <Button onClick={handleSubmission}>Submit</Button>
       </div>
+      {responseSuccess ? (
+                <div>
+                    {responseImage && <img src={`data:image/jpeg;base64,${responseImage}`} />}
+                </div>
+            ) : (
+                <p>Wait to receive response to view modified image</p>
+            )}
     </Fragment>
   );
 }

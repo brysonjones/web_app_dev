@@ -1,12 +1,17 @@
 
 .main {
-  padding: 4rem;
-  position : relative
+  padding: 0rem;
+  position : relative;
 }
 
 .title {
   margin: auto;
   text-align: center;
+  padding: 0.75rem;
+  background-color: #84142D;
+  border-style: solid;
+  border-width: 0px 0px 3px 0px;
+  border-color: #29C7AC;
 }
 
 .image_viewer {
@@ -18,7 +23,7 @@
 .footer {
   position: absolute;
   left: 50%;
-  bottom: 0px;
+  padding: 1rem;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%)
 }

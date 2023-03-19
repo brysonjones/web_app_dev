@@ -29,23 +29,25 @@ const ModifiedImage = (props) => {
   };
 
   return (
-    <Fragment>
-      <div>
+    <div className="grid grid-cols-1 gap-1 content-center">
+      <div className="grid place-items-center">
         <Button onClick={handleSubmission}>Submit</Button>
       </div>
-      {responseSuccess ? (
-        <div>
-          {responseImage && (
-            <img
-              src={`data:image/jpeg;base64,${responseImage}`}
-              className={classes.image}
-            />
-          )}
-        </div>
-      ) : (
-        <Canvas />
-      )}
-    </Fragment>
+      <div className="grid place-items-center">
+        {responseSuccess ? (
+          <div>
+            {responseImage && (
+              <img
+                src={`data:image/jpeg;base64,${responseImage}`}
+                className={classes.image}
+              />
+            )}
+          </div>
+        ) : (
+          <Canvas />
+        )}
+      </div>
+    </div>
   );
 };
 

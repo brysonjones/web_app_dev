@@ -6,30 +6,34 @@ import classes from "./ImageInput.module.css";
 const ImageInput = (props) => {
   const fileInput = useRef(null);
   return (
-    <Fragment>
-      <input
-        type="file"
-        name="file"
-        ref={fileInput}
-        onChange={props.onChange}
-        style={{ display: "none" }}
-        className={classes.input}
-      />
-      <Button onClick={() => fileInput.current.click()}>Upload Image</Button>
-      {props.isSelected ? (
-        <div>
-          {props.image && (
-            <img
-              src={props.image}
-              alt="preview image"
-              className={classes.image}
-            />
-          )}
-        </div>
-      ) : (
-        <Canvas />
-      )}
-    </Fragment>
+    <div className="grid grid-cols-1 gap-1 content-center">
+      <div className="grid place-items-center">
+        <input
+          type="file"
+          name="file"
+          ref={fileInput}
+          onChange={props.onChange}
+          style={{ display: "none" }}
+          className={classes.input}
+        />
+        <Button onClick={() => fileInput.current.click()}>Upload Image</Button>
+      </div>
+      <div className="grid place-items-center">
+        {props.isSelected ? (
+          <div >
+            {props.image && (
+              <img
+                src={props.image}
+                alt="preview image"
+                className={classes.image}
+              />
+            )}
+          </div>
+        ) : (
+          <Canvas />
+        )}
+      </div>
+    </div>
   );
 };
 

@@ -27,9 +27,9 @@ export default function Home() {
 
       <div className={styles.main}>
         <div className={styles.title}>
-          <h1>ControlNet</h1>
+          <h1 className="text-3xl font-bold">ControlNet</h1>
         </div>
-        <div className={styles.image_viewer}>
+        <div className="grid grid-cols-2 gap-2 p-8 content-center">
           <FileUpload />
         </div>
       </div>

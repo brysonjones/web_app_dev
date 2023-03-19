@@ -14,18 +14,18 @@
   margin: auto;
   color: secondary-color;
   text-align: center;
-  padding: 0.75rem;
+  padding: 2rem;
   background-color: accent-color;
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   border-color: tertiary-color;
 }
 
-.image_viewer {
+/* .image_viewer {
   margin: auto;
   text-align: center;
   padding: 2rem;
-}
+} */
 
 .footer {
   position: absolute;

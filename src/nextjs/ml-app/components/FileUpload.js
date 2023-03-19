@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Button from "./UI/Button";
 import ImageInput from "./UI/ImageInput";
+import classes from "./FileUpload.module.css";
 
 function FileUploadPage() {
   const [selectedFile, setSelectedFile] = useState();
@@ -49,7 +50,7 @@ function FileUploadPage() {
       </div>
       {responseSuccess ? (
                 <div>
-                    {responseImage && <img src={`data:image/jpeg;base64,${responseImage}`} />}
+                    {responseImage && <img src={`data:image/jpeg;base64,${responseImage}`} className={classes.image}/>}
                 </div>
             ) : (
                 <p>Wait to receive response to view modified image</p>

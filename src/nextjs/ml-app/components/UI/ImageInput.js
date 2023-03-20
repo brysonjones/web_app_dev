@@ -24,7 +24,7 @@ const ImageInput = (props) => {
               <img
                 src={props.image}
                 alt="preview image"
-                className=""
+                className="p-4"
               />
             )}
           </div>

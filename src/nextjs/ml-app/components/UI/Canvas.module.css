@@ -7,8 +7,6 @@
 .canvas {
   margin: auto;
   text-align: center;
-  width: 500px;
-  height: 500px;
   line-height: 500px;
   background-color: secondary-color;
   background-clip: content-box;

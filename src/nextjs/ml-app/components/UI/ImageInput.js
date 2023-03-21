@@ -32,6 +32,27 @@ const ImageInput = (props) => {
           <Canvas />
         )}
       </div>
+      <div>
+        <form onSubmit>
+          <label>Enter your name:
+            <input 
+              type="text" 
+              name="username" 
+              value
+              onChange
+            />
+            </label>
+            <label>Enter your age:
+              <input 
+                type="number" 
+                name="age" 
+                value
+                onChange
+              />
+            </label>
+            <input type="submit" />
+        </form>
+      </div>
     </div>
   );
 };

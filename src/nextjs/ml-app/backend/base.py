@@ -47,14 +47,14 @@ def img_to_base64(image):
     return img_str
 
 def control_net(image):
-    prompt = "Katy Perry, best quality, extremely detailed"
+    prompt = "a house, sunny day, beautiful sky, best quality, extremely detailed"
     generator = torch.Generator(device="cpu").manual_seed(3)
     output = pipe(
         prompt,
         image,
         negative_prompt="monochrome, lowres, bad anatomy, worst quality, low quality",
         generator=generator,
-        num_inference_steps=20,
+        num_inference_steps=30,
     )
     return output.images[0]
 

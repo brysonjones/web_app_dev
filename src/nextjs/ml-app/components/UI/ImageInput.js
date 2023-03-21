@@ -4,6 +4,10 @@ import Canvas from "./Canvas";
 import classes from "./ImageInput.module.css";
 
 const ImageInput = (props) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
   const fileInput = useRef(null);
   return (
     <div className="grid grid-cols-1 gap-1 content-center">
@@ -33,20 +37,20 @@ const ImageInput = (props) => {
         )}
       </div>
       <div>
-        <form onSubmit>
+        <form onSubmit={handleSubmit}>
           <label>Enter your name:
             <input 
-              type="text" 
-              name="username" 
-              value
-              onChange
+              type="file"
+              name="file"
+              ref={fileInput}
+              onChange={props.onChange}
             />
             </label>
-            <label>Enter your age:
+            <label>Enter prompt:
               <input 
-                type="number" 
-                name="age" 
-                value
+                type="text" 
+                name="prompt" 
+                value={inputs.prompt || ""}
                 onChange
               />
             </label>

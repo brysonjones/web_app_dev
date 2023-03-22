@@ -1,61 +1,31 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import Button from "./Button";
-import Canvas from "./Canvas";
+import ImageRenderer from "../ImageRenderer";
+import UploadForm from "../UploadForm";
+
 import classes from "./ImageInput.module.css";
 
 const ImageInput = (props) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+
+  const [image, setImage] = useState(null);
+  const [isSelected, setIsSelected] = useState(false);
 
   const fileInput = useRef(null);
   return (
     <div className="grid grid-cols-1 gap-1 content-center">
       <div className="grid place-items-center">
-        <input
-          type="file"
-          name="file"
-          ref={fileInput}
-          onChange={props.onChange}
-          style={{ display: "none" }}
+        <UploadForm  
+          setFile={props.setFile}
+          setPrompt={props.setPrompt}
+          setImage={setImage}
+          setIsSelected={setIsSelected}
         />
-        <Button onClick={() => fileInput.current.click()}>Upload Image</Button>
       </div>
       <div className="grid place-items-center">
-        {props.isSelected ? (
-          <div >
-            {props.image && (
-              <img
-                src={props.image}
-                alt="preview image"
-                className="p-4"
-              />
-            )}
-          </div>
-        ) : (
-          <Canvas />
-        )}
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>Enter your name:
-            <input 
-              type="file"
-              name="file"
-              ref={fileInput}
-              onChange={props.onChange}
-            />
-            </label>
-            <label>Enter prompt:
-              <input 
-                type="text" 
-                name="prompt" 
-                value={inputs.prompt || ""}
-                onChange
-              />
-            </label>
-            <input type="submit" />
-        </form>
+        <ImageRenderer 
+          isSelected={isSelected}
+          image={image}
+        />
       </div>
     </div>
   );

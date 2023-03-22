@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import FileUpload from "../components/FileUpload";
+import InputManager from "../components/InputManager";
 import { io } from "socket.io-client";
 
 const URL = "http://localhost:5000";
@@ -30,7 +30,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold">ControlNet</h1>
         </div>
         <div className="grid grid-cols-2 gap-2 p-8 content-center">
-          <FileUpload />
+          <InputManager />
         </div>
       </div>
 

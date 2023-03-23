@@ -10,7 +10,8 @@ const ModifiedImage = (props) => {
   const handleSubmission = () => {
     const formData = new FormData();
 
-    formData.append("File", props.selectedFile);
+    formData.append("File", props.file);
+    formData.append("prompt", props.prompt);
 
     fetch("http://localhost:5000", {
       crossDomain: true,

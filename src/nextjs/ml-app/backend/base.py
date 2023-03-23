@@ -46,8 +46,8 @@ def img_to_base64(image):
     img_str = base64.b64encode(buff.getvalue()).decode()
     return img_str
 
-def control_net(image):
-    prompt = "a house, sunny day, beautiful sky, best quality, extremely detailed"
+def control_net(image, prompt):
+    prompt = prompt + ", best quality, extremely detailed"
     generator = torch.Generator(device="cpu").manual_seed(3)
     output = pipe(
         prompt,
@@ -63,8 +63,9 @@ def control_net(image):
 def upload_image():
    if request.method == 'POST':
         image = Image.open(request.files['File'].stream)
+        prompt = request.form.get('prompt')
         filtered_image = filter_image(image)
-        transformed_image = control_net(filtered_image)
+        transformed_image = control_net(filtered_image, prompt)
         data = img_to_base64(transformed_image)  
         return jsonify(isError= False,
                         message= "Success",

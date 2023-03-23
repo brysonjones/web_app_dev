@@ -2,20 +2,20 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import InputManager from "../components/InputManager";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
-const URL = "http://localhost:5000";
-const socket = io(URL, { autoConnect: false });
+// const URL = "http://localhost:5000";
+// const socket = io(URL, { autoConnect: false });
 
-const connect = () => {
-  console.log("connect");
-  socket.connect();
-};
+// const connect = () => {
+//   console.log("connect");
+//   socket.connect();
+// };
 
-const clickHandler = () => {
-  console.log("sending");
-  socket.emit("message", "yeet");
-};
+// const clickHandler = () => {
+//   console.log("sending");
+//   socket.emit("message", "yeet");
+// };
 
 export default function Home() {
   return (

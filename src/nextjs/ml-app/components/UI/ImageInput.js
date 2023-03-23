@@ -1,5 +1,4 @@
 import React, { Fragment, useRef, useState } from "react";
-import Button from "./Button";
 import ImageRenderer from "../ImageRenderer";
 import UploadForm from "../UploadForm";
 
@@ -10,7 +9,6 @@ const ImageInput = (props) => {
   const [image, setImage] = useState(null);
   const [isSelected, setIsSelected] = useState(false);
 
-  const fileInput = useRef(null);
   return (
     <div className="grid grid-cols-1 gap-1 content-center">
       <div className="grid place-items-center">

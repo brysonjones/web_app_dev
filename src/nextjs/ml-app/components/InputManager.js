@@ -14,7 +14,7 @@ function FileUploadPage() {
         setFile={setFile}
         setPrompt={setPrompt}
       />
-      <ModifiedImage selectedFile={file} />
+      <ModifiedImage file={file} prompt={prompt} />
     </Fragment>
   );
 }

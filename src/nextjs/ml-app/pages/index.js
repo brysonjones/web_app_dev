@@ -1,7 +1,24 @@
 
-import SignInScreen from "../components/Layout/SignInScreen";
+import Link from 'next/link';
+import { useAuth } from "../components/Layout/Firebase/context";
 
 export default function Home() {
-    return <SignInScreen />;
-  }
-  
+  const { user } = useAuth();
+
+  return (
+    <div style={{ padding: '40px' }}>
+      <p>{`User ID: ${user ? user.uid : 'no user signed in'}`}</p>
+
+      <p>
+        <Link href="/signedIn">
+          Go to signed in page
+        </Link>
+      </p>
+      <p>
+        <Link href="/login">
+          Login
+        </Link>
+      </p>
+    </div>
+  );
+}

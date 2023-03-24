@@ -1,20 +1,8 @@
-// Import FirebaseAuth and firebase.
-import React from 'react';
+
+import Link from "next/link";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-
-// Configure Firebase.
-const config = {
-    apiKey: "AIzaSyB1xPxjCTj-4nXvbiwH9xJ0Wd0bwAC-qS4",
-    authDomain: "first-ml-app-c9e56.firebaseapp.com",
-    projectId: "first-ml-app-c9e56",
-    storageBucket: "first-ml-app-c9e56.appspot.com",
-    messagingSenderId: "701239774605",
-    appId: "1:701239774605:web:e71ea619d5118ae26301c4",
-    measurementId: "G-MEFHMJNZQZ"
-};
-firebase.initializeApp(config);
 
 // Configure FirebaseUI.
 const uiConfig = {
@@ -31,6 +19,9 @@ const uiConfig = {
 function SignInScreen() {
   return (
     <div className="grid grid-cols-1 gap-1 content-center text-center p-8">
+      <Link href="/">
+        Go back to home page
+      </Link>
       <h1 className="text-5xl font-bold">ControlNet</h1>
       <p>Please sign-in:</p>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />

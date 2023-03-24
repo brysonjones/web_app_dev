@@ -1,9 +1,15 @@
+
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import { useRouter } from 'next/router'
 import Link from "next/link";
 import InputManager from "../components/InputManager";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 export default function SignedIn() {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -20,7 +26,21 @@ export default function SignedIn() {
         </div>
       </div>
 
-      <footer className={styles.footer}>
+      <footer className={styles.footer}>   
+        <div>
+          <button
+            onClick={async () => {
+              await firebase
+                .auth()
+                .signOut()
+                .then(() => {
+                  router.push("/");
+                });
+            }}
+          >
+            Sign out
+          </button>
+        </div>   
         Built by{" "}
         <Link
           href="https://github.com/brysonjones"

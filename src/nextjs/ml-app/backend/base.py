@@ -19,9 +19,12 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app,cors_allowed_origins="*")
 
 # diffusion model
+# model_id = "stabilityai/stable-diffusion-2"
+model_id = "runwayml/stable-diffusion-v1-5"
+
 controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-canny", torch_dtype=torch.float16)
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-    "runwayml/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
+    model_id, controlnet=controlnet, torch_dtype=torch.float16
 )
 pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
@@ -31,7 +34,7 @@ def filter_image(image):
     image = np.array(image)
 
     low_threshold = 100
-    high_threshold = 200
+    high_threshold = 150
 
     image = cv2.Canny(image, low_threshold, high_threshold)
     image = image[:, :, None]

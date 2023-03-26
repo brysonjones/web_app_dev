@@ -1,4 +1,5 @@
 
+import React, { useEffect} from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { useRouter } from 'next/router'
@@ -6,9 +7,23 @@ import Link from "next/link";
 import InputManager from "../components/InputManager";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { useAuth } from "../components/Layout/Firebase/context";
 
 export default function SignedIn() {
+  const { user } = useAuth();
   const router = useRouter();
+
+  // check if user is authenticated and re-route to login page id not
+  useEffect(() => {
+    if (user == null) {
+      router.push("/login");
+    }
+  }, [user]);
+
+  // if user value is not set yet, don't render anything
+  if (!user) {
+    return null;
+  }
 
   return (
     <div>
